@@ -1,3 +1,26 @@
+server:
+  port: 8083
+
 spring:
   application:
     name: finance-transaction-service
+
+  data:
+    mongodb:
+      uri: ${MONGODB_URI_TRANSACTIONS}
+      database: finance_transactions
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:your-super-secret-key-your-super-secret-key-123456}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

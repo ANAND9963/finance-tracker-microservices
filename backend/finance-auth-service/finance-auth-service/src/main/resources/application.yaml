@@ -1,3 +1,27 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: finance-auth-service
+
+  data:
+    mongodb:
+      uri: ${MONGODB_URI_AUTH}
+      database: finance_auth
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-ms: 604800000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
